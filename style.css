@@ -1,0 +1,290 @@
+/* Cores e configurações principais */
+:root {
+    --fundo: #fffdfd;
+    --texto: #30252b;
+    --texto-suave: #786b72;
+    --rosa: #f8edf1;
+    --vinho: #792b49;
+    --borda: #eadde2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.7;
+    transition: 0.3s;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Menu */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--fundo);
+    border-bottom: 1px solid var(--borda);
+}
+
+.navbar {
+    max-width: 1200px;
+    min-height: 70px;
+    margin: auto;
+    padding: 12px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--vinho);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 22px;
+}
+
+.menu a, .rodape a {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.menu a:hover, .rodape a:hover {
+    color: var(--vinho);
+}
+
+.botao-tema {
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    padding: 8px 12px;
+    background: var(--rosa);
+    color: var(--vinho);
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: none;
+    color: var(--vinho);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* Início */
+.inicio {
+    max-width: 1200px;
+    min-height: 540px;
+    margin: auto;
+    padding: 90px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.legenda {
+    color: var(--vinho);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.3rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+h1 span, h2 span {
+    color: var(--vinho);
+}
+
+.inicio-texto {
+    max-width: 700px;
+    margin: auto;
+}
+
+
+.link-destaque {
+    display: inline-block;
+    color: var(--vinho);
+    font-weight: bold;
+    border-bottom: 1px solid var(--vinho);
+    padding-bottom: 4px;
+}
+
+/* Seções */
+.secao {
+    max-width: 1200px;
+    margin: auto;
+    padding: 85px 25px;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+
+.texto-sobre {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--texto-suave);
+}
+
+.texto-sobre p{
+    text-align: left;
+    text-indent: 30px;
+    line-height: 1.7;
+}
+
+.texto-sobre p + p {
+    margin-top: 15px;
+}
+
+.secao-rosa {
+    max-width: none;
+    padding-left: max(25px, calc((100% - 1000px) / 2));
+    padding-right: max(25px, calc((100% - 1000px) / 2));
+    background: var(--rosa);
+}
+
+.interesses-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    max-width: 750px;
+    margin: 0;
+    text-align: left;
+}
+
+
+.interesses-lista div {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--borda);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.descricao {
+    color: var(--texto-suave);
+    margin: -10px 0 25px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.foto-galeria {
+    height: 250px;
+    background: var(--rosa);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.foto-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Rodapé */
+.rodape {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
+    border-top: 1px solid var(--borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.rodape p {
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
+
+/* Modo escuro */
+body.escuro {
+    --fundo: #211a1e;
+    --texto: #f8f0f3;
+    --texto-suave: #c5b6bd;
+    --rosa: #35262e;
+    --vinho: #e5a9bf;
+    --borda: #49343e;
+}
+
+/* Responsividade (mobile) */
+@media (max-width: 700px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 0;
+    }
+
+    .menu.aberto {
+        display: flex;
+    }
+
+    .botao-tema {
+        margin-left: auto;
+    }
+
+    .inicio {
+        min-height: auto;
+        padding: 60px 25px;
+    }
+
+    .secao {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .foto-galeria {
+        height: 280px;
+    }
+
+    .rodape {
+        flex-direction: column;
+        text-align: center;
+    }
+}
